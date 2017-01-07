@@ -1,0 +1,35 @@
+{% set name = "tree" %}
+{% set version = "1.7.0" %}
+{% set sha256 = "6957c20e82561ac4231638996e74f4cfa4e6faabc5a2f511f0b4e3940e8f7b12" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.tgz
+  url: http://mama.indstate.edu/users/ice/tree/src/{{ name }}-{{ version }}.tgz
+  sha256: {{ sha256 }}
+  patches:
+    - patch-Makefile.patch
+
+build:
+  number: 0
+  script: make && prefix=${PREFIX} make install
+
+requirements:
+  build:
+    #- conda-forge/toolchain
+
+about:
+  home: http://mama.indstate.edu/users/ice/tree/
+  license: GPL v2
+  license_family: GPL
+  license_file: LICENSE
+  summary: 'The Tree Command for Linux'
+
+  description: |
+    Tree is a recursive directory listing command that produces a depth indented
+    listing of files, which is colorized ala dircolors if the LS_COLORS environment
+    variable is set and output is to tty.
+  doc_url: http://mama.indstate.edu/users/ice/tree/tree.1.html

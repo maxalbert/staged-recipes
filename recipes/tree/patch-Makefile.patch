@@ -1,0 +1,11 @@
+--- Makefile.orig       2017-01-07 18:35:27.468514145 +0000
++++ Makefile    2017-01-07 18:35:59.350631525 +0000
+@@ -16,7 +16,7 @@
+ # along with this program; if not, write to the Free Software
+ # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+-prefix = /usr
++prefix ?= /usr
+
+ CC=gcc
+
